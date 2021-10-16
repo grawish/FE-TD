@@ -1,0 +1,27 @@
+.card {
+  width: 100%;
+  background: #D8DEE9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 2vmin;
+  margin: 3vmin 0;
+  padding: 2vmin;
+
+  .cardhead {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      text-transform: capitalize;
+    }
+    .description{
+      width: 100%;
+      text-overflow: ellipsis;
+    }
+  }
+
+  textarea {
+    width: 100%;
+  }
+}

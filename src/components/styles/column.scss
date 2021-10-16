@@ -1,0 +1,27 @@
+@import "node_modules/nord/src/sass/nord.scss";
+
+.column{
+  width: 300px;
+  background: $nord5;
+  border-radius: 3vmin;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  background: $nord5;
+  padding: 3vmin;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  .colheader{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    align-items: center;
+    h1{
+      text-transform: capitalize;
+    }
+  }
+}
+.cards{
+  height: 90%;
+  flex-grow: 1;
+  overflow-y: scroll;
+}

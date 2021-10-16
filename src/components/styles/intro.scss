@@ -1,0 +1,47 @@
+@import "node_modules/nord/src/sass/nord.scss";
+.path1 {
+  stroke-dasharray: 3748.0791015625;
+  stroke-dashoffset: 3748.0791015625;
+  stroke-width: 10px;
+  animation: draw 5s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .center-box {
+    background: white;
+    height: 25vw;
+    width: 50vw;
+    border-radius: 5vh;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 62.5px;
+      font-weight: 400;
+    }
+    button{
+      background: $nord4;
+      padding: 3vh;
+      border: none;
+      border-radius: 5vh;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 3vh;
+      margin-top: 5vh;
+    }
+  }
+}

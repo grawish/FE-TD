@@ -1,0 +1,28 @@
+@import "node_modules/nord/src/sass/nord.scss";
+.board{
+  display: grid;
+  //grid-template-columns: repeat(100, 400px);
+  grid-auto-flow: column;
+  grid-gap: 2vw;
+  overflow-x: scroll;
+  height: 100vh;
+  padding: 5vh;
+  color: $nord2;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.addcol{
+  width: 30vmin;
+  height: 30vmin;
+  background: $nord5;
+  border-radius: 3vmin;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15vmin;
+  font-weight: 700;
+  color: $nord3;
+  place-self: center;
+}
