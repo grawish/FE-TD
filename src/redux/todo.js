@@ -5,27 +5,27 @@ const initialTodo = {
         {
             name: 'backlog',
             cards: [
-                {name: 'card A', description: 'description of Card A'},
-                {name: 'card D', description: 'description of Card D'},
-                {name: 'card E', description: 'description of Card E'},
+                {name: 'card A', description: 'description of Card A', descriptionMd: '<p>description of Card A</p>'},
+                {name: 'card D', description: 'description of Card D', descriptionMd: '<p>description of Card A</p>'},
+                {name: 'card E', description: 'description of Card E', descriptionMd: '<p>description of Card A</p>'},
             ]
         },
         {
             name: 'In Progress',
             cards: [
-                {name: 'Card B', description: 'description of Card B'}
+                {name: 'Card B', description: 'description of Card B', descriptionMd: '<p>description of Card A</p>'}
             ]
         },
         {
             name: 'Done',
             cards: [
-                {name: 'Card C', description: "Description of Card C"}
+                {name: 'Card C', description: "Description of Card C", descriptionMd: '<p>description of Card A</p>'}
             ]
         },
         {
             name: 'Blockers',
             cards: [
-                {name: 'Card F', description: "Description of Card F"}
+                {name: 'Card F', description: "Description of Card F", descriptionMd: '<p>description of Card A</p>'}
             ]
         }
     ]
@@ -70,7 +70,8 @@ const todo = createSlice({
         deleteCard: (prevState, actions) => {
             const columns = [...prevState.columns];
             const {columnIndex, cardIndex} = actions.payload;
-            columns[columnIndex].cards.splice(cardIndex, 1)
+            columns[columnIndex].cards.splice(cardIndex, 1);
+            console.log(cardIndex,columnIndex,columns[columnIndex].cards);
         },
         deleteColumn: (prevState, actions) => {
             prevState.columns.splice(actions.payload.columnIndex, 1)
@@ -86,9 +87,15 @@ const todo = createSlice({
                 ...prevState.columns[actions.payload.columnIndex],
                 name: actions.payload.name
             }
+        },
+        updateMd: (prevState, actions) => {
+            prevState.columns[actions.payload.columnIndex].cards[actions.payload.cardIndex] = {
+                ...prevState.columns[actions.payload.columnIndex].cards[actions.payload.cardIndex],
+                descriptionMd: actions.payload.descriptionMd
+            }
         }
 
     }
 })
 export default todo.reducer;
-export const {addNew, editCard, moveCard, deleteCard, deleteColumn, addColumn, editColumn} = todo.actions;
+export const {addNew, editCard, moveCard, deleteCard, deleteColumn, addColumn, editColumn, updateMd} = todo.actions;

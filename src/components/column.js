@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 const Column = ({columnIndex, onMoveLeft, onMoveRight, onEdit}) => {
     const column = useSelector(state => state.todo.columns[columnIndex]);
     const [titleEditor, setTitleEditor] = useState(false);
-    const [colName, setColName] = useState(column.name)
+    const [colName, setColName] = useState(column.name);
     const refColName = useRef(null);
     const dispatch = useDispatch();
     const setColTitle = () => {
@@ -33,8 +33,11 @@ const Column = ({columnIndex, onMoveLeft, onMoveRight, onEdit}) => {
         <div className='column'>
             <div className='colheader'>
                 <button onClick={delcol}><i className="fa-regular fa-trash"/></button>
-                {!titleEditor ? <h1 onClick={() => setTitleEditor(true)}>{colName}</h1> :
-                    <input ref={refColName} type='text' value={colName} onChange={e => setColName(e.target.value)}/>
+                {!titleEditor ? <h1 onClick={() => setTitleEditor(true)}>{column.name}</h1> :
+                    <input ref={refColName} type='text' value={column.name} onChange={e => {
+                        dispatch(editColumn({columnIndex,name: colName}));
+                        setColName(e.target.value);
+                    }}/>
                 }
                 <button onClick={() => dispatch(addNew({columnIndex}))}><i className="fa-solid fa-plus"/></button>
             </div>
