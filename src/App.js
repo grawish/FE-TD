@@ -14,6 +14,7 @@ function App() {
                     <Router>
                         <Route path='/' exact component={Intro}/>
                         <Route path='/board' render={() => (<Board/>)} exact/>
+                        <h1>hello World!</h1>
                     </Router>
                 </div>
             </div>
